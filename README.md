@@ -23,5 +23,28 @@ expected response:
 This will return a json response with the code provided
 
 ``` json
+// /200
+{
+  "code": 200,
+  "message": "Status OK"
+}
 
+```
+
+## Create a Tag/Release
+
+```
+git tag -l
+git tag -a v0.0.1-beta -m "v0.0.1-beta"
+git push --tags
+# Force push
+git push -f --tags
+```
+
+## Building Docker image
+
+```
+docker build -t sjulian/go-httpbin:local .
+docker push sjulian/go-httpbin:local
+docker run -d -p 8080:8080 --name httpbin sjulian/go-httpbin:local
 ```
